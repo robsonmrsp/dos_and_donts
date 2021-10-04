@@ -22,6 +22,7 @@ public class Parser {
 
   private static void applyBasicJsonValues(JsonGenre jsonGenre, Genre genre) {
     jsonGenre.setId(genre.getId());
+    jsonGenre.setName(genre.getName());
   }
 
   private static void applyBasicEntityValues(Genre genre, JsonGenre jsonGenre) {
@@ -79,10 +80,16 @@ public class Parser {
 
   private static void applyBasicJsonValues(JsonMovie jsonMovie, Movie movie) {
     jsonMovie.setId(movie.getId());
+    jsonMovie.setTitle(movie.getTitle());
+    jsonMovie.setBudget(movie.getBudget());
+    jsonMovie.setReleaseDate(movie.getReleaseDate());
   }
 
   private static void applyBasicEntityValues(Movie movie, JsonMovie jsonMovie) {
     movie.setId(jsonMovie.getId());
+    movie.setTitle(jsonMovie.getTitle());
+    movie.setBudget(jsonMovie.getBudget());
+    movie.setReleaseDate(jsonMovie.getReleaseDate());
   }
 
   public static JsonMovie toJson(Movie movie) {
@@ -94,7 +101,10 @@ public class Parser {
 
     applyBasicJsonValues(jsonMovie, movie);
 
-    Genre listGenre = movie.getGenre();
+    Genre genre = movie.getGenre();
+    if (genre != null) {
+      jsonMovie.setGenre(toBasicJson(genre));
+    }
 
     List<Actor> listElenco = movie.getCast();
     if (listElenco != null) {

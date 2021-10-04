@@ -12,4 +12,4 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class ConventionalTestConfiguration {}
 
 
-criar aqui a base de daods para rodas os testes
+//criar aqui a base de daods para rodas os testes

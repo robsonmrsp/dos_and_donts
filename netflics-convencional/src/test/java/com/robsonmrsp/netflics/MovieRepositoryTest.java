@@ -18,7 +18,6 @@ public class MovieRepositoryTest {
 
   @Autowired MovieRepository movies;
 
-  @
 
   @ComponentScan
   static class TestConfig {}

@@ -31,5 +31,4 @@ public class ConventionalConfiguration {
   public PlatformTransactionManager transactionManager(DataSource dataSource) {
     return new DataSourceTransactionManager(dataSource);
   }
-  
 }
